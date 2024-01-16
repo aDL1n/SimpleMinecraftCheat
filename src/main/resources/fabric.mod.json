@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "simpleminecraftcheat",
+  "version": "${version}",
+  "name": "SimpleMinecraftCheat",
+  "description": "",
+  "authors": [
+    "Adl1n"
+  ],
+  "contact": {
+    "repo": "https://github.com/K1tiK4/SimpleMinecraftCheatatrixWare-new"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "org.adlin.simpleminecraftcheat.Client"
+    ]
+  },
+  "mixins": [
+    "simpleminecraftcheat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.adlin.simpleminecraftcheat.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ClientMixin",
+    "GameMenuScreenMixin",
+    "InGameHudMixin",
+    "KeyboardMixin",
+    "TitleScreenMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
