@@ -10,14 +10,14 @@ import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.Component;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class Frame {
+public class CategoryFrame {
 
     public int x, y, width, height, dragX, dragY;
     public Module.Category category;
     public boolean dragging, extended;
     private final ArrayList<ModuleButton> buttons;
     public MinecraftClient mc = MinecraftClient.getInstance();
-    public Frame(int x, int y, int width, int height, Module.Category category) {
+    public CategoryFrame(int x, int y, int width, int height, Module.Category category) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -38,7 +38,9 @@ public class Frame {
         context.fill(x ,y , x+width , y+height , -1);
         int offset = (height /2) - mc.textRenderer.fontHeight / 2;
         context.drawText(mc.textRenderer , category.name , x + offset , y+ offset  , Color.YELLOW.getRGB() , true);
-        context.drawText(mc.textRenderer , extended ? "-" : "+" , x+ (width + 10) - (height /2) - mc.textRenderer.fontHeight / 2 - mc.textRenderer.getWidth("+") , y + (height /2) - mc.textRenderer.fontHeight / 2 , Color.YELLOW.getRGB() , true);
+        if (!buttons.isEmpty()){
+            context.drawText(mc.textRenderer , extended ? "-" : "+" , x+ (width + 10) - (height /2) - mc.textRenderer.fontHeight / 2 - mc.textRenderer.getWidth("+") , y + (height /2) - mc.textRenderer.fontHeight / 2 , Color.YELLOW.getRGB() , true);
+        }
         context.drawBorder(x, y, width + 1, height + 1 , Color.black.getRGB());
 
         if(extended){

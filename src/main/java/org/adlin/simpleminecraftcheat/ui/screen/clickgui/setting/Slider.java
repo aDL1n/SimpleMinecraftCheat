@@ -20,9 +20,13 @@ public class Slider extends Component{
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+
+        int offsetY = ((parent.parent.height / 2) - mc.textRenderer.fontHeight / 2);
         double diff = Math.min(parent.parent.width, Math.max(0, mouseX - parent.parent.x));
         int renderWidth = (int) (parent.parent.width * (numSet.getValue() - numSet.getMin()) / (numSet.getMax() - numSet.getMin()));
         context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + renderWidth, parent.parent.y + parent.offset+ offset+ parent.parent.height , Color.yellow.getRGB());
+        context.drawText(mc.textRenderer , numSet.getName() + ": "+ roundToPlace(numSet.getValue(),2) , parent.parent.x + offsetY , parent.parent.y + parent.offset + offset + offsetY , -1, true);
+
         if (sliding) {
             if (diff == 0) {
                 numSet.setValue(numSet.getMin());
@@ -31,9 +35,7 @@ public class Slider extends Component{
             }
         }
 
-        int offsetY = ((parent.parent.height / 2) - mc.textRenderer.fontHeight / 2);
         context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset+ offset+ parent.parent.height , new Color(0 ,0 ,0 ,160).getRGB());
-        context.drawText(mc.textRenderer , numSet.getName() + ": "+ roundToPlace(numSet.getValue(),2) , parent.parent.x + offsetY , parent.parent.y + parent.offset + offset + offsetY , -1, true);
         super.render(context, mouseX, mouseY, delta);
     }
 

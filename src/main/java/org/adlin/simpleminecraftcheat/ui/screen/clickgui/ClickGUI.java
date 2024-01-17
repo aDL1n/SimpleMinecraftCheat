@@ -11,22 +11,22 @@ import java.util.List;
 public class ClickGUI extends Screen {
     public static final ClickGUI INSTANCE = new ClickGUI();
 
-    private List<Frame> frames;
+    private final List<CategoryFrame> frames;
     private ClickGUI() {
         super(Text.literal("Click GUI"));
         frames = new ArrayList<>();
 
         int offset = 20;
         for(Module.Category category: Module.Category.values()){
-            frames.add(new Frame(offset, 20, 100, 20, category));
-            offset += 120;
+            frames.add(new CategoryFrame(30, offset, 100, 20, category));
+            offset += 31;
         }
 
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        for (Frame frame: frames){
+        for (CategoryFrame frame: frames){
             frame.render(context , mouseX , mouseY , delta);
             frame.updatePosition(mouseX,mouseY);
         }
@@ -35,7 +35,7 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        for (Frame frame: frames){
+        for (CategoryFrame frame: frames){
             frame.mouseClicked(mouseX , mouseY , button);
         }
         return super.mouseClicked(mouseX, mouseY, button);
@@ -43,7 +43,7 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseReleased(double mouseX, double mouseY, int button) {
-        for(Frame frame : frames){
+        for(CategoryFrame frame : frames){
             frame.mouseRelease(mouseX, mouseY, button);
         }
         return super.mouseReleased(mouseX, mouseY, button);

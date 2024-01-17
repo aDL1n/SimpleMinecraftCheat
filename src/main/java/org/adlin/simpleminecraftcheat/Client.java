@@ -13,13 +13,18 @@ import org.lwjgl.glfw.GLFW;
 public class Client implements ModInitializer {
 	
 	public static final Client INSTANCE = new Client();
+	public final String VERSION = "0.1-alpha";
 	public static Logger logger = LogManager.getLogger(Client.class);
 	public final MinecraftClient mc = MinecraftClient.getInstance();
 
 	@Override
 	public void onInitialize() {
+
 	}
-	
+	public String getVERSION() {
+		return VERSION;
+	}
+
 	public void onKeyPress(int key, int action) {
 		if(action == GLFW.GLFW_PRESS){
 			for(Module module : ModuleManager.INSTANCE.getModules()){

@@ -6,7 +6,7 @@ import org.adlin.simpleminecraftcheat.modules.settings.BooleanSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.ModeSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.NumberSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.Settings;
-import org.adlin.simpleminecraftcheat.ui.screen.clickgui.Frame;
+import org.adlin.simpleminecraftcheat.ui.screen.clickgui.CategoryFrame;
 import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.CheckBox;
 import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.Component;
 import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.ModeBox;
@@ -18,13 +18,13 @@ import java.util.ArrayList;
 public class ModuleButton {
 
     public Module module;
-    public Frame parent;
+    public CategoryFrame parent;
     public int offset;
     private final MinecraftClient mc = MinecraftClient.getInstance();
     public ArrayList<Component> components;
     public boolean extended;
 
-    public ModuleButton(Module module, Frame frame, int offset){
+    public ModuleButton(Module module, CategoryFrame frame, int offset){
         this.module = module;
         this.parent = frame;
         this.offset = offset;
