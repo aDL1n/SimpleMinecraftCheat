@@ -11,6 +11,7 @@
     "TitleScreenMixin"
   ],
   "client": [
+    "RenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

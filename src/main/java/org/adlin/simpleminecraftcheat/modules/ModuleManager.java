@@ -1,6 +1,7 @@
 package org.adlin.simpleminecraftcheat.modules;
 
 import org.adlin.simpleminecraftcheat.modules.COMBAT.FlightModule;
+import org.adlin.simpleminecraftcheat.modules.COMBAT.HitboxModule;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,5 +41,6 @@ public class ModuleManager {
 
     private void addModules(){
         modules.add(new FlightModule());
+        modules.add(new HitboxModule());
     }
 }

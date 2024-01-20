@@ -2,7 +2,7 @@ package org.adlin.simpleminecraftcheat.modules.settings;
 
 public class NumberSettings extends Settings {
 
-    private double min, max, increment;
+    private final double min, max, increment;
     private double value;
 
     public NumberSettings(String name , double min , double max , double defaultValue , double increment) {

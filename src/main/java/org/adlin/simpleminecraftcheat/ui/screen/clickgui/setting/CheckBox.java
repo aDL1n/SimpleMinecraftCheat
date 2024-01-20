@@ -16,7 +16,7 @@ public class CheckBox extends Component{
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        int offsetY = ((parent.parent.height / 2) - mc.textRenderer.fontHeight / 2);
+        int offsetY = ((parent.parent.height / 2) - (mc.textRenderer.fontHeight / 2));
         context.fill(parent.parent.x, parent.parent.y + parent.offset + offset, parent.parent.x + parent.parent.width, parent.parent.y + parent.offset+ offset+ parent.parent.height , new Color(0 ,0 ,0 ,160).getRGB());
         context.drawText(mc.textRenderer , boolSet.getName() + ": "+ boolSet.isEnabled() , parent.parent.x + offsetY , parent.parent.y + parent.offset + offset + offsetY , -1, true);
         super.render(context, mouseX, mouseY, delta);

@@ -5,7 +5,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
 import net.minecraft.client.gui.screen.option.OptionsScreen;
 import net.minecraft.client.gui.screen.world.SelectWorldScreen;
@@ -28,22 +27,22 @@ public class CustomScreen extends Screen {
 
     @Override
     protected void init() {
-        button1 = ButtonWidget.builder(Text.literal("Multiplayer"), button -> {
+        button1 = ButtonWidget.builder(Text.translatable("simpleminecraftcheat.multiplayer"), button -> {
                     MinecraftClient.getInstance().setScreen(new MultiplayerScreen(this));
                 })
                 .dimensions(width / 2 - 90, 125, 180, 20)
                 .build();
-        button2 = ButtonWidget.builder(Text.literal("Settings"), button -> {
+        button2 = ButtonWidget.builder(Text.translatable("simpleminecraftcheat.settings"), button -> {
                     MinecraftClient.getInstance().setScreen(new OptionsScreen(this, new GameOptions(mc , null)));
                 })
                 .dimensions(width / 2 - 90 , 150, 180, 20)
                 .build();
-        button3 = ButtonWidget.builder(Text.literal("Singleplayer"),button ->{
+        button3 = ButtonWidget.builder(Text.translatable("simpleminecraftcheat.singleplayer"),button ->{
             MinecraftClient.getInstance().setScreen(new SelectWorldScreen(this));
             })
                 .dimensions(width/2 - 90 , 100 , 180 , 20)
                 .build();
-        button4 = ButtonWidget.builder(Text.literal("Quit") , button -> {
+        button4 = ButtonWidget.builder(Text.translatable("simpleminecraftcheat.quit") , button -> {
                     mc.close();
                 })
                 .dimensions(width / 2 - 90 , 175, 180, 20)

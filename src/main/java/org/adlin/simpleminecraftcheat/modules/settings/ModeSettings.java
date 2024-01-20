@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ModeSettings extends Settings{
     private String mode;
-    private List<String> modes;
+    private final List<String> modes;
     private int index;
 
     public ModeSettings(String name, String defaultMode, String... modes) {
