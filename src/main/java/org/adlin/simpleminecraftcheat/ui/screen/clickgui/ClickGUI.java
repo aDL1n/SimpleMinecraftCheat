@@ -50,6 +50,13 @@ public class ClickGUI extends Screen {
     }
 
     @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        for (CategoryFrame frame : frames) {
+            frame.keyPressed(keyCode);
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+    @Override
     public boolean shouldPause() {
         return false;
     }

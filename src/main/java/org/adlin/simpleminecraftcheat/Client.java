@@ -13,7 +13,7 @@ import org.lwjgl.glfw.GLFW;
 public class Client implements ModInitializer {
 	
 	public static final Client INSTANCE = new Client();
-	public final String VERSION = "0.3-alpha";
+	public final String VERSION = "0.4-alpha";
 	public static Logger logger = LogManager.getLogger(Client.class);
 	public final MinecraftClient mc = MinecraftClient.getInstance();
 

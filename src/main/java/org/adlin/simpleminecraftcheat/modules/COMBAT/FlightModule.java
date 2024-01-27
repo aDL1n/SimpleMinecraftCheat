@@ -2,6 +2,7 @@ package org.adlin.simpleminecraftcheat.modules.COMBAT;
 
 import org.adlin.simpleminecraftcheat.modules.Module;
 import org.adlin.simpleminecraftcheat.modules.settings.BooleanSettings;
+import org.adlin.simpleminecraftcheat.modules.settings.KeyBindSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.ModeSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.NumberSettings;
 import org.lwjgl.glfw.GLFW;
@@ -13,7 +14,6 @@ public class FlightModule extends Module {
     public ModeSettings modeSettings = new ModeSettings("test" , "1" , "1" , "2" , "3");
     public FlightModule() {
         super("Flight" ,"Fly" ,"LOl" , false , Module.Category.COMBAT);
-        this.setKey(GLFW.GLFW_KEY_H);
         addSettings(numberSettings , booleanSettings, modeSettings);
     }
     @Override

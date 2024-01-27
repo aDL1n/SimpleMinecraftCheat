@@ -2,15 +2,10 @@ package org.adlin.simpleminecraftcheat.modules;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import org.adlin.simpleminecraftcheat.modules.settings.BooleanSettings;
-import org.adlin.simpleminecraftcheat.modules.settings.ModeSettings;
-import org.adlin.simpleminecraftcheat.modules.settings.NumberSettings;
-import org.adlin.simpleminecraftcheat.modules.settings.Settings;
+import org.adlin.simpleminecraftcheat.modules.settings.*;
 import org.adlin.simpleminecraftcheat.ui.screen.clickgui.CategoryFrame;
-import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.CheckBox;
+import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.*;
 import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.Component;
-import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.ModeBox;
-import org.adlin.simpleminecraftcheat.ui.screen.clickgui.setting.Slider;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -39,6 +34,8 @@ public class ModuleButton {
                 components.add(new ModeBox(settings , this, setOffset));
             }else if(settings instanceof NumberSettings){
                 components.add(new Slider(settings , this, setOffset));
+            } else if(settings instanceof KeyBindSettings) {
+                components.add(new KeyBind(settings, this, setOffset));
             }
             setOffset += parent.height;
         }
@@ -77,5 +74,10 @@ public class ModuleButton {
     }
     public boolean isHovered(double mouseX, double mouseY){
         return mouseX > parent.x && mouseX < parent.x + parent.width && mouseY > parent.y + offset && mouseY < parent.y + offset + parent.height;
+    }
+    public void keyPressed(int key) {
+        for (Component component : components) {
+            component.keyPressed(key);
+        }
     }
 }

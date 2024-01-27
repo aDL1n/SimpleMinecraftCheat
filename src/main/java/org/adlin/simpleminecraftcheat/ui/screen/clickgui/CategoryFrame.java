@@ -35,13 +35,13 @@ public class CategoryFrame {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta){
+        context.drawBorder(x, y, width + 1, height + 1 , Color.black.getRGB());
         context.fill(x ,y , x+width , y+height , -1);
         int offset = (height /2) - mc.textRenderer.fontHeight / 2;
         context.drawText(mc.textRenderer , category.name , x + offset , y+ offset  , Color.YELLOW.getRGB() , true);
         if (!buttons.isEmpty()){
             context.drawText(mc.textRenderer , extended ? "-" : "+" , x+ (width + 10) - (height /2) - mc.textRenderer.fontHeight / 2 - mc.textRenderer.getWidth("+") , y + (height /2) - mc.textRenderer.fontHeight / 2 , Color.YELLOW.getRGB() , true);
         }
-        context.drawBorder(x, y, width + 1, height + 1 , Color.black.getRGB());
 
         if(extended){
             for(ModuleButton button : buttons){
@@ -87,6 +87,11 @@ public class CategoryFrame {
         }
     }
 
+    public void keyPressed(int key) {
+        for (ModuleButton mb : buttons) {
+            mb.keyPressed(key);
+        }
+    }
     public void updateButtons(){
         int offset = height;
 

@@ -1,6 +1,7 @@
 package org.adlin.simpleminecraftcheat.modules;
 
 import net.minecraft.client.MinecraftClient;
+import org.adlin.simpleminecraftcheat.modules.settings.KeyBindSettings;
 import org.adlin.simpleminecraftcheat.modules.settings.Settings;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Module {
     private final Category category;
     protected MinecraftClient mc = MinecraftClient.getInstance();
 
-    private List<Settings> settings = new ArrayList<>();
+    private final List<Settings> settings = new ArrayList<>();
 
     public Module(String name, String displayName,  String description, boolean enabled , Category category) {
         this.name = name;
@@ -24,6 +25,8 @@ public class Module {
         this.description = description;
         this.category = category;
         this.enabled = enabled;
+
+        addSettings(new KeyBindSettings("Key", 0));
     }
 
     public void toggle(){
@@ -55,9 +58,9 @@ public class Module {
         EXPLOIT("Exploit"),
         WORLD("World");
 
-        public String name;
+        public final String name;
 
-        private Category(String name){
+        Category(String name){
             this.name = name;
         }
 
